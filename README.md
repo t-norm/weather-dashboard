@@ -1,5 +1,5 @@
 # Weather Dashboard
-site live at: link to be placed here in the future
+site live at: https://t-norm.github.io/weather-dashboard/
 --
 This application uses third party server side API data to pull weather data. 
 A user will be able to search for a given city and will see the current forcast for the given city. 
