@@ -2,7 +2,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-body section h1 {
+body h1 {
     font-size: 48px;
     text-decoration: overline;
 }
@@ -15,4 +15,8 @@ body section h1 {
 .weather-data {
     filter: drop-shadow(0px 2px 5px black);
     border: 2px solid #17a2b8;
+}
+
+.forecast {
+    filter: drop-shadow(0px 2px 3px black);
 }
