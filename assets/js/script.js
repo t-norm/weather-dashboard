@@ -19,18 +19,19 @@ $("#search-button").click(function(){
                 console.log(data);
                 logSearchHistory();
             });
-
-            $("#city-input").focus(function(){
-                $(this).val("");
-            });
         } else {
             alert("You may have entered an invalid city name or weather services may be down. Please try again.");
         }
     });
+
+    $("#city-input").val("");
 });
 
 function logSearchHistory() {
-    searchHistoryEl = '<div class="forecast col text-center bg-primary text-white mx-0 my-3 rounded">' + cityName + '</div>';
-    $("#search-history").append(searchHistoryEl);
+    searchHistoryEl = `<div class="forecast row bg-primary text-white mx-0 my-3 rounded">
+    <div class="col d-flex justify-content-center"> ${cityName} </div>
+    <div class="col-1 d-flex justify-content-end pt-1">
+    <i class="fas fa-minus-circle"></i></div></div>`
+    $("#search-history").prepend(searchHistoryEl);
     
 }
