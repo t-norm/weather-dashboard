@@ -18,6 +18,16 @@ body h1 {
     border-radius: 5px;
 }
 
+.city-name {
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.current-weather-icon {
+    filter: drop-shadow(0px 2px 5px black);
+}
+
 .forecast {
     filter: drop-shadow(0px 2px 3px black);
 }
