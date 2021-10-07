@@ -27,11 +27,17 @@ $("#search-button").click(function(){
     $("#city-input").val("");
 });
 
+$(document).on('click',"#history-delete",function() {
+    console.log($(this).parents("history-container"));
+    $(this).parents("#history-container").remove();
+    
+});
+
 function logSearchHistory() {
-    searchHistoryEl = `<div class="forecast row bg-primary text-white mx-0 my-3 rounded">
+    searchHistoryEl = `<div class="forecast row bg-primary text-white mx-0 my-3 rounded" id="history-container">
     <div class="col d-flex justify-content-center"> ${cityName} </div>
     <div class="col-1 d-flex justify-content-end pt-1">
-    <i class="fas fa-minus-circle"></i></div></div>`
+    <i class="fas fa-minus-circle" id="history-delete"></i></div></div>`
     $("#search-history").prepend(searchHistoryEl);
     
 }
