@@ -30,7 +30,34 @@ $("#search-button").click(function(){
 
                 $("#temperature").text("Temperature: " + data.main.temp + " °F");
                 $("#humidity").text("Humidity: " + data.main.humidity + "%");
-                $("#wind-speed").text("Wind Speed: " + data.wind.speed + " MPH")
+                $("#wind-speed").text("Wind Speed: " + data.wind.speed + " MPH");
+
+                let lat = data.coord.lat;
+                let lon = data.coord.lon;
+                let UVindexURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&cnt=1";
+                fetch(UVindexURL).then(function(response) {
+                    response.json().then(function(data) {
+                        console.log(data);
+                        $("#UV-index").text(data[0].value);
+                        switch (true){
+                            case (data[0].value < 3):
+                                $("#UV-index").attr("class", "low");
+                                break;
+                            case (data[0].value < 6 && data[0].value >= 3):
+                                $("#UV-index").attr("class", "moderate");
+                                break;
+                            case (data[0].value < 8 && data[0].value >= 6):
+                                $("#UV-index").attr("class", "high");
+                                break;
+                            case (data[0].value < 11 && data[0].value >= 8):
+                                $("#UV-index").attr("class", "very-high");
+                                break;
+                            case (data[0].value >= 11):
+                                $("#UV-index").attr("class", "extreme");
+                                break;
+                        }
+                    });
+                });
             });
         } else {
             alert("You may have entered an invalid city name or weather services may be down. Please try again.");

@@ -36,3 +36,43 @@ body h1 {
     font-weight: bold;
     font-size: 20px;
 }
+
+.low {
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgb(0, 255, 0);
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.moderate {
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgb(255, 255, 0);
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.high {
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgb(200, 130, 0);
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.very-high {
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.extreme {
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgb(160, 0, 255);
+    border-radius: 5px;
+    padding: 3px;
+}
