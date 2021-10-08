@@ -8,8 +8,8 @@ $("#search-button").click(function(){
     cityName = $("#city-input").val().trim().toLowerCase().replace(/\b[a-z]/g, function(txtVal) {
         return txtVal.toUpperCase();
     });    
-    apiKey = "c5f2523844ee1178a0e74a7c87427cf4";
-    apiURL = "https://api.openweathermap.org/data/2.5/weather?q="
+    let apiKey = "c5f2523844ee1178a0e74a7c87427cf4";
+    let apiURL = "https://api.openweathermap.org/data/2.5/weather?q="
     + cityName + "&units=imperial&appid=" + apiKey;
 
     fetch(apiURL).then(function(response){
@@ -27,6 +27,10 @@ $("#search-button").click(function(){
                 $("#city-name").text(data.name + " | " + month + "/" + day + "/" + year);
                 $("#current-weather-icon").attr("src", "https://openweathermap.org/img/wn/" + currentWeatherIcon + "@2x.png");
                 $("#current-weather-icon").attr("alt", data.weather[0].description);
+
+                $("#temperature").text(data.main.temp + " °F");
+                $("#humidity").text(data.main.humidity + "%");
+                $("#wind-speed").text(data.wind.speed + " MPH")
             });
         } else {
             alert("You may have entered an invalid city name or weather services may be down. Please try again.");
