@@ -28,9 +28,9 @@ $("#search-button").click(function(){
                 $("#current-weather-icon").attr("src", "https://openweathermap.org/img/wn/" + currentWeatherIcon + "@2x.png");
                 $("#current-weather-icon").attr("alt", data.weather[0].description);
 
-                $("#temperature").text(data.main.temp + " °F");
-                $("#humidity").text(data.main.humidity + "%");
-                $("#wind-speed").text(data.wind.speed + " MPH")
+                $("#temperature").text("Temperature: " + data.main.temp + " °F");
+                $("#humidity").text("Humidity: " + data.main.humidity + "%");
+                $("#wind-speed").text("Wind Speed: " + data.wind.speed + " MPH")
             });
         } else {
             alert("You may have entered an invalid city name or weather services may be down. Please try again.");
