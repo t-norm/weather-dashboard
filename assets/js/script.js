@@ -58,6 +58,19 @@ $("#search-button").click(function(){
                         }
                     });
                 });
+
+                let fiveDayForecastURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon="+ lon + "&exclude=current,minutely,hourly,alerts&units=imperial&appid=" + apiKey;
+                fetch(fiveDayForecastURL).then(function(response) {
+                    response.json().then(function(data) {
+                        console.log(data);
+                        for (let i = 1; i < 6; i++) {
+                            $("#forecast-icon" + i).attr("class", "d-none");
+                            $("#day"+ i + "temp").attr("class", "").text("Temp: " + data.daily[i].temp.day + " °F");
+                            $("#day"+ i + "humidity").attr("class", "").text("Temp: " + data.daily[i].humidity + "%");
+                            $("#day"+ i + "wind").attr("class", "").text("Wind: " + data.daily[i].wind_speed + " MPH");
+                        } 
+                    });
+                });
             });
         } else {
             alert("You may have entered an invalid city name or weather services may be down. Please try again.");

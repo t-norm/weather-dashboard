@@ -7,6 +7,10 @@ body h1 {
     text-decoration: overline;
 }
 
+.cloud {
+    filter: drop-shadow(0px 2px 5px black);
+}
+
 .title-bar {
     filter: drop-shadow(0px 2px 5px black);
     background: linear-gradient(180deg, rgba(13,13,208,1) 0%, rgba(0,212,255,1) 100%);

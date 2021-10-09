@@ -17,9 +17,9 @@
         <!-- header -->
         <header class="title-bar text-center row">
             <div class="col-3"></div>
-            <i class="fas fa-cloud-sun fa-3x text-white py-5 col-1"></i>
+            <i class="cloud fas fa-cloud-sun fa-3x text-white py-5 col-1"></i>
             <h1 class="m-5 d-inline text-white col-4">Weather Dashboard</h1>
-            <i class="fas fa-cloud-sun fa-3x text-white py-5 col-1"></i>
+            <i class="cloud fas fa-cloud-sun fa-3x text-white py-5 col-1"></i>
         </header>
 
         <!-- city search & search history -->
@@ -70,20 +70,56 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <!-- 5 day forecast -->
-                    <div class="row ml-2">
-                        <div class="col-12">
-                            <h3>5-Day Forecast:</h3>
-                        </div>
-                    </div>
-                    <div class="row ml-2">
-                        <div class="forecast col bg-primary text-white mx-2 mb-3 rounded">X</div>
-                        <div class="forecast col bg-primary text-white mx-2 mb-3 rounded">X</div>
-                        <div class="forecast col bg-primary text-white mx-2 mb-3 rounded">X</div>
-                        <div class="forecast col bg-primary text-white mx-2 mb-3 rounded">X</div>
-                        <div class="forecast col bg-primary text-white mx-2 mb-3 rounded">X</div>
-                    </div>
+            <!-- 5 day forecast -->
+            <div class="row">
+                <div class="col">
+                    <h3>5-Day Forecast:</h3>
+                </div>
+            </div>
+
+            <div class="row" id="five-day-forecast">    
+                <div class="forecast card col bg-primary text-white text-center mx-2 mb-3 rounded" id="day1">
+                    <i class="cloud fas fa-cloud fa-3x text-white py-5 col" id="forecast-icon1"></i>
+                    <div class="d-none" id="day1date"></div>
+                    <div class="d-none" id="day1icon"></div>
+                    <div class="d-none" id="day1temp"></div>
+                    <div class="d-none" id="day1humidity"></div>
+                    <div class="d-none" id="day1wind"></div>
+                </div>
+                <div class="forecast card col bg-primary text-white text-center mx-2 mb-3 rounded" id="day2">
+                    <i class="cloud fas fa-cloud fa-3x text-white py-5 col" id="forecast-icon2"></i>
+                    <div class="d-none" id="day2date"></div>
+                    <div class="d-none" id="day2icon"></div>
+                    <div class="d-none" id="day2temp"></div>
+                    <div class="d-none" id="day2humidity"></div>
+                    <div class="d-none" id="day2wind"></div>
+                </div>
+                <div class="forecast card col bg-primary text-white text-center mx-2 mb-3 rounded" id="day3">
+                    <i class="cloud fas fa-cloud fa-3x text-white py-5 col" id="forecast-icon3"></i>
+                    <div class="d-none" id="day3date"></div>
+                    <div class="d-none" id="day3icon"></div>
+                    <div class="d-none" id="day3temp"></div>
+                    <div class="d-none" id="day3humidity"></div>
+                    <div class="d-none" id="day3wind"></div>
+                </div>
+                <div class="forecast card col bg-primary text-white text-center mx-2 mb-3 rounded" id="day4">
+                    <i class="cloud fas fa-cloud fa-3x text-white py-5 col" id="forecast-icon4"></i>
+                    <div class="d-none" id="day4date"></div>
+                    <div class="d-none" id="day4icon"></div>
+                    <div class="d-none" id="day4temp"></div>
+                    <div class="d-none" id="day4humidity"></div>
+                    <div class="d-none" id="day4wind"></div>
+                </div>
+                <div class="forecast card col bg-primary text-white text-center mx-2 mb-3 rounded" id="day5">
+                    <i class="cloud fas fa-cloud fa-3x text-white py-5 col" id="forecast-icon5"></i>
+                    <div class="d-none" id="day5date"></div>
+                    <div class="d-none" id="day5icon"></div>
+                    <div class="d-none" id="day5temp"></div>
+                    <div class="d-none" id="day5humidity"></div>
+                    <div class="d-none" id="day5wind"></div>   
                 </div>
             </div>
         </div> 
