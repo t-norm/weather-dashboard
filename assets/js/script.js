@@ -65,9 +65,10 @@ $("#search-button").click(function(){
                         console.log(data);
                         for (let i = 1; i < 6; i++) {
                             $("#forecast-icon" + i).attr("class", "d-none");
-                            $("#day"+ i + "temp").attr("class", "").text("Temp: " + data.daily[i].temp.day + " °F");
-                            $("#day"+ i + "humidity").attr("class", "").text("Temp: " + data.daily[i].humidity + "%");
-                            $("#day"+ i + "wind").attr("class", "").text("Wind: " + data.daily[i].wind_speed + " MPH");
+                            $("#day" + i + "icon").attr("class", "cloud col").attr("src", "https://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + "@2x.png").attr("alt", data.daily[i].weather[0].description);
+                            $("#day" + i + "temp").attr("class", "").text("Temp: " + data.daily[i].temp.day + " °F");
+                            $("#day" + i + "humidity").attr("class", "").text("Temp: " + data.daily[i].humidity + "%");
+                            $("#day" + i + "wind").attr("class", "").text("Wind: " + data.daily[i].wind_speed + " MPH");
                         } 
                     });
                 });
