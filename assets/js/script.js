@@ -1,8 +1,8 @@
 let searchHistory = JSON.parse(localStorage.getItem("Search History")) || [];
 if (searchHistory.length > 0) {
     for (let i = 0; i < searchHistory.length; i++) {
-        searchHistoryEl = `<div class="forecast row bg-primary text-white mx-0 my-3 rounded" id="history-container">
-        <div class="col d-flex justify-content-center" id="city"> ${searchHistory[i]} </div></div>`
+        searchHistoryEl = `<div class="forecast row bg-primary text-white mx-0 my-3 rounded">
+        <div class="col d-flex justify-content-center">${searchHistory[i]}</div></div>`
         $("#search-history").prepend(searchHistoryEl);
     }
 }
@@ -100,8 +100,8 @@ $(document).on('click',"#history-delete",function() {
 });
 
 function logSearchHistory() {
-    searchHistoryEl = `<div class="forecast row bg-primary text-white mx-0 my-3 rounded" id="history-container">
-    <div class="col d-flex justify-content-center" id="city"> ${cityName} </div></div>`
+    searchHistoryEl = `<div class="forecast row bg-primary text-white mx-0 my-3 rounded">
+    <div class="col d-flex justify-content-center">${cityName}</div></div>`
     $("#search-history").prepend(searchHistoryEl);
     searchHistory.push(cityName);
     localStorage.setItem("Search History",JSON.stringify(searchHistory));
