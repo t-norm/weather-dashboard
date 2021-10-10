@@ -65,6 +65,13 @@ $("#search-button").click(function(){
                         console.log(data);
                         for (let i = 1; i < 6; i++) {
                             $("#forecast-icon" + i).attr("class", "d-none");
+
+                            const date = new Date(data.daily[i].dt*1000);
+                            const month = date.getMonth() + 1;
+                            const day = date.getDate();
+                            const year = date.getFullYear();
+                            $("#day" + i + "date").attr("class", "").text(month + "/" + day + "/" + year);
+                            
                             $("#day" + i + "icon").attr("class", "cloud col").attr("src", "https://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + "@2x.png").attr("alt", data.daily[i].weather[0].description);
                             $("#day" + i + "temp").attr("class", "").text("Temp: " + data.daily[i].temp.day + " °F");
                             $("#day" + i + "humidity").attr("class", "").text("Temp: " + data.daily[i].humidity + "%");
