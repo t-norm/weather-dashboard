@@ -1,3 +1,12 @@
+let searchHistory = JSON.parse(localStorage.getItem("Search History")) || [];
+if (searchHistory.length > 0) {
+    for (let i = 0; i < searchHistory.length; i++) {
+        searchHistoryEl = `<div class="forecast row bg-primary text-white mx-0 my-3 rounded" id="history-container">
+        <div class="col d-flex justify-content-center" id="city"> ${searchHistory[i]} </div></div>`
+        $("#search-history").prepend(searchHistoryEl);
+    }
+}
+
 $("#city-input").keypress(function(e){
     if (e.which == 13){
         $("#search-button").click();
@@ -15,7 +24,6 @@ $("#search-button").click(function(){
     fetch(apiURL).then(function(response){
         if (response.ok) {
             response.json().then(function(data) {
-                console.log(data);
                 logSearchHistory();
                 
                 const date = new Date(data.dt*1000);
@@ -37,7 +45,6 @@ $("#search-button").click(function(){
                 let UVindexURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&cnt=1";
                 fetch(UVindexURL).then(function(response) {
                     response.json().then(function(data) {
-                        console.log(data);
                         $("#UV-index").text(data[0].value);
                         switch (true){
                             case (data[0].value < 3):
@@ -62,7 +69,6 @@ $("#search-button").click(function(){
                 let fiveDayForecastURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon="+ lon + "&exclude=current,minutely,hourly,alerts&units=imperial&appid=" + apiKey;
                 fetch(fiveDayForecastURL).then(function(response) {
                     response.json().then(function(data) {
-                        console.log(data);
                         for (let i = 1; i < 6; i++) {
                             $("#forecast-icon" + i).attr("class", "d-none");
 
@@ -71,7 +77,7 @@ $("#search-button").click(function(){
                             const day = date.getDate();
                             const year = date.getFullYear();
                             $("#day" + i + "date").attr("class", "").text(month + "/" + day + "/" + year);
-                            
+
                             $("#day" + i + "icon").attr("class", "cloud col").attr("src", "https://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + "@2x.png").attr("alt", data.daily[i].weather[0].description);
                             $("#day" + i + "temp").attr("class", "").text("Temp: " + data.daily[i].temp.day + " °F");
                             $("#day" + i + "humidity").attr("class", "").text("Temp: " + data.daily[i].humidity + "%");
@@ -89,13 +95,14 @@ $("#search-button").click(function(){
 });
 
 $(document).on('click',"#history-delete",function() {
-    $(this).parents("#history-container").remove();
+    $("#search-history").children().remove();
+    localStorage.clear();
 });
 
 function logSearchHistory() {
     searchHistoryEl = `<div class="forecast row bg-primary text-white mx-0 my-3 rounded" id="history-container">
-    <div class="col d-flex justify-content-center"> ${cityName} </div>
-    <div class="col-1 d-flex justify-content-end pt-1">
-    <i class="fas fa-minus-circle" id="history-delete"></i></div></div>`
+    <div class="col d-flex justify-content-center" id="city"> ${cityName} </div></div>`
     $("#search-history").prepend(searchHistoryEl);
+    searchHistory.push(cityName);
+    localStorage.setItem("Search History",JSON.stringify(searchHistory));
 }
