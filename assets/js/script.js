@@ -106,3 +106,9 @@ function logSearchHistory() {
     searchHistory.push(cityName);
     localStorage.setItem("Search History",JSON.stringify(searchHistory));
 }
+
+$(document).on("click", "div.col.d-flex.justify-content-center", function(){
+    var city = $(this).text();
+    $("#city-input").val(city);
+    $("#search-button").click();
+});
