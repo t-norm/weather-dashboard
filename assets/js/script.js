@@ -100,11 +100,13 @@ $(document).on('click',"#history-delete",function() {
 });
 
 function logSearchHistory() {
-    searchHistoryEl = `<div class="forecast row bg-primary text-white mx-0 my-3 rounded">
-    <div class="col d-flex justify-content-center">${cityName}</div></div>`
-    $("#search-history").prepend(searchHistoryEl);
-    searchHistory.push(cityName);
-    localStorage.setItem("Search History",JSON.stringify(searchHistory));
+    if (searchHistory.length < 5) {
+        searchHistoryEl = `<div class="forecast row bg-primary text-white mx-0 my-3 rounded">
+        <div class="col d-flex justify-content-center">${cityName}</div></div>`
+        $("#search-history").prepend(searchHistoryEl);
+        searchHistory.push(cityName);
+        localStorage.setItem("Search History",JSON.stringify(searchHistory));
+    }
 }
 
 $(document).on("click", "div.col.d-flex.justify-content-center", function(){
